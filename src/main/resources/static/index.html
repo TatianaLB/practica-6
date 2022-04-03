@@ -5,7 +5,7 @@
     <body>
         <h1>Proceso de carga de datos</h1>
         <p>
-            El proceso de carga necesita necesita de los siguientes datos:
+            El proceso de carga necesita de los siguientes datos:
         </p>
         <form method="post"
               action="/api/v1/process-step1-legacy"
@@ -27,6 +27,8 @@
         </div>
 
         <script>
+
+            //Hacemos un POST para coger los datos del formulario
             function sendProcessStep1(event) {
                 // Evitar que se envie el form
                 event.preventDefault();
@@ -54,6 +56,7 @@
                         console.log(data);
 
                         if(data.result === "OK") {
+                            //En caso de que vaya bien, envíamos los datos y ponemos un link que de la posibilidad de enviar más
                             document.getElementById("feedback").innerHTML = "<h1>Muchas gracias por enviar los datos. FETCH</h1><a href='javascript:location.reload()'>Recargar</a>";
                         } else {
                             document.getElementById("feedback").innerHTML = "<h1>Hemos tenido un problema con su solicitud.</h1><p>Revise los datos introducidos</p>";
